@@ -8,3 +8,7 @@ Ok, so setting up the simplest example of finding a sum total from entries in an
 A number that immediately matches the total, meaning if you just look x+y = z then if you have x = z and y = 0, it'll match, but the problem comes when you do the subsequent multiplication then it'll always be 0.
 
 Also, it could be possible that there are multiple matches available, do we trust the input... simple answer, never! (or trust but verify).
+
+A thought about the algo of doing array.map with an inner array.find ... could that be made more efficient (almost definitely), first thought is, once you've searched below target/2 then you've already scanned the higher numbers (if the input is sorted) therefore you won't find a match if you keep going.
+
+What if there are two (or more) of the same number...
