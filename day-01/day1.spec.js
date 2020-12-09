@@ -1,4 +1,8 @@
-// import { a } from "./a";
+import should from 'should';
+
+import {
+    findItemsThatSumToTarget
+} from '../core/findItemsThatSumToTarget.js';
 // import { output } from "./index.js";
 
 describe("day 1", () => {
@@ -13,12 +17,11 @@ describe("day 1", () => {
                 675,
                 1456
             ];
-            let result = [];
+            let result = findItemsThatSumToTarget(input, 2020);
 
-            expect( result ).toEqual( [1721, 299] );
+            result.should.deepEqual([1721, 299]);
         });
     });
 
-    describe("part 2", () => {
-    });
+    describe("part 2", () => {});
 });

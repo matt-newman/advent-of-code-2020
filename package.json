@@ -1,14 +1,17 @@
 {
   "name": "advent-of-code-2020",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "description": "trying to solve advent of code 2020 problems",
   "main": "index.js",
+  "type": "module",
   "scripts": {
-    "test": "jest"
+    "test": "mocha"
   },
   "author": "Matt Newman",
   "license": "ISC",
   "devDependencies": {
-    "jest": "^26.6.3"
+    "mocha": "^8.2.1",
+    "mocha-cli": "^1.0.1",
+    "should": "^13.2.3"
   }
 }
