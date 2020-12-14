@@ -1,6 +1,7 @@
 So, the natural start for me would seem to be to read the problem definition and then to take the examples provided and turn those into tests, even just the skeleton of tests simply to get something quickly runnable going, I enjoy having runnable tests!
 
-Day 1.1
+# Day 1
+## Part 1:
 So, scan a list for a combination of entries that add to 2020. My immediate reaction is to translate this to scan an array, setting a target as 2020 (or zero) and deducting the index entry from 2020 and seeing if the resulting number is found in the array.
 
 Ok, so setting up the simplest example of finding a sum total from entries in an array immediately reveals a few potential traps:
@@ -18,3 +19,18 @@ So an actual problem my tests didn't catch that I had to spend a long time debug
 FFFFFFUUUUUUUUUUU.......
 
 will have example tests for both numbers and strings of array input (although thats effectively overkill, the actual program will always be strings due to readFile and split...)
+
+Hopefully I've solved this problem from here on by mapping the input passing it through parseInt.
+
+## Part 2:
+So, now we'll potentially have to find a match for a given target number for n number of factors, so the brute force way of solving this would be to simply try all possible combinations in the array, for the problem, you could just have a nested loop, e.g: 
+
+```
+items.forEach
+    x = target - item
+    items.forEach
+        y = x - item
+        items.find(y) 
+```
+
+This is obviously computationally expensive/inefficient and can be improved in a number of ways.

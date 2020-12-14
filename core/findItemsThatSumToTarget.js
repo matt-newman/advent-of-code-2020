@@ -1,4 +1,4 @@
-const findItemsThatSumToTarget = (input=[], target=2020) => {
+const findItemsThatSumToTarget = ( { input=[], target=2020, numberOfFactors=2 } ) => {
     let output = [];
     let numericList = input.map( x => parseInt(x) );
     
