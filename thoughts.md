@@ -12,3 +12,9 @@ Also, it could be possible that there are multiple matches available, do we trus
 A thought about the algo of doing array.map with an inner array.find ... could that be made more efficient (almost definitely), first thought is, once you've searched below target/2 then you've already scanned the higher numbers (if the input is sorted) therefore you won't find a match if you keep going.
 
 What if there are two (or more) of the same number...
+
+So an actual problem my tests didn't catch that I had to spend a long time debugging (which I now remember from a previous year... is the input difference between being a number and a string, when I setup the test cases, they're numbers because I've copied them in, but when I read in input from a file and split, it makes an array of strings, therefore, comparison or searching the array for a number doesn't work...)
+
+FFFFFFUUUUUUUUUUU.......
+
+will have example tests for both numbers and strings of array input (although thats effectively overkill, the actual program will always be strings due to readFile and split...)
