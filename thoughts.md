@@ -34,3 +34,6 @@ items.forEach
 ```
 
 This is obviously computationally expensive/inefficient and can be improved in a number of ways.
+
+# Day 2
+## Part 1:

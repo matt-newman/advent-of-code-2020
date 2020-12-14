@@ -7,8 +7,8 @@ import {
 } from '../utils/readFile.js';
 
 import {
-    findItemsThatSumToTarget
-} from '../core/findItemsThatSumToTarget.js';
+    findPairThatSumToTarget
+} from '../core/findPairThatSumToTarget.js';
 
 import {
     sumItems
@@ -16,8 +16,8 @@ import {
 
 let input = getContents('./day-01/input.1.txt').split('\n');
 
-let items = findItemsThatSumToTarget(input);
+let items = findPairThatSumToTarget(input);
 
 let output = sumItems(items);
 
-console.log( output );
+console.log( { output } );
