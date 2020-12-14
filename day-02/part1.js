@@ -7,17 +7,14 @@ import {
 } from '../utils/readFile.js';
 
 import {
-    findPairThatSumToTarget
-} from '../core/findPairThatSumToTarget.js';
+    getValidPasswords
+} from './passwordChecker.js';
 
-import {
-    sumItems
-} from './sumItems.js';
+let input = getContents('./day-02/input.txt').split('\n');
+let items = getValidPasswords({
+    input
+});
 
-let input = getContents('./day-01/input.1.txt').split('\n');
-
-let items = findPairThatSumToTarget(input);
-
-let output = sumItems(items);
-
-console.log( { output } );
+console.log({
+    output: items.length
+});
