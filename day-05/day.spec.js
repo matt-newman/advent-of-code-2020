@@ -24,6 +24,18 @@ describe("day 05", () => {
                 column: 5
             });
         });
+
+        it("should return the correct answer matching the example", () => {
+            const seat = getSeat({
+                input: input[0]
+            });
+
+            const result = getSeatId( { seat } );
+
+            result.should.equal(357);
+
+            // the seat has ID 44 * 8 + 5 = 357
+        });
     });
 
     xdescribe("part 2", () => {

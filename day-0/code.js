@@ -40,7 +40,7 @@ const getColumn = ( columnData=[] ) => {
 const getSeatId = ({
     seat
 }) => {
-
+    return seat.row * 8 + seat.column;
 };
 
 export {
