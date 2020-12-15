@@ -48,3 +48,5 @@ My suspicion is that it will be re-used and that we'll need to do a combination 
 
 # Day 3
 ## Part 1:
+
+so it feels like a relatively simple exercise in simply looping and checking what is at the given index in each loop
