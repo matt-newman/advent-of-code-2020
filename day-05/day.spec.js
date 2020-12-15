@@ -61,6 +61,7 @@ describe("day 05", () => {
             const result = getHighestSeatId( { seats } );
 
             result.should.equal(820);
+            // puzzle answer = 888
         });
     });
 
@@ -71,6 +72,7 @@ describe("day 05", () => {
             });
 
             result.should.not.deepEqual([]);
+            // puzzle answer = 522
         });
     });
 

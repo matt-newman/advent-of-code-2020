@@ -80,3 +80,11 @@ mainly some functions I wrote/used didn't behave as I expected I also repeatedly
 
 # Day 5
 ## Part 1:
+
+This was relatively straight forward
+
+## Part 2:
+
+This seems like its a case in manually working out the min and max, based on the formula for seat id.
+
+Otherwise, getting the full seat, taking only the ids and then sorting and looking for the gap
