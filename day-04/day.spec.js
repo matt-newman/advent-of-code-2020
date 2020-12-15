@@ -1,25 +1,29 @@
 import should from 'should';
 import {
-    a,
-    b
+    numberOfValidPassports
 } from './code.js';
+import {
+    getContents
+} from '../utils/readFile.js';
 
-describe("day X", () => {
-    let input = [];
+let input = getContents('./day-04/example.txt').split('\n\n'); // important take note of: '\n\n'
+
+describe("day 04", () => {
 
     describe("part 1", () => {
         it("should return the correct answer matching the example", () => {
-            const result = a({
+            const result = numberOfValidPassports({
                 input
             });
 
-            result.should.not.deepEqual([]);
+            result.length.should.equal(2);
+            // puzzle answer = 233
         });
     });
 
     describe("part 2", () => {
         it("should return the correct answer matching the example", () => {
-            const result = b({
+            const result = isValidPassport({
                 input
             });
 
