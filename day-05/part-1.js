@@ -3,13 +3,17 @@ import {
 } from '../utils/readFile.js';
 
 import {
-    a
+    getAllSeats,
+    getHighestSeatId
 } from './code.js';
 
-let input = getContents('./day-0/input.txt').split('\n');
-let output = a({
+const input = getContents('./day-05/input.txt').split('\n');
+
+const seats = getAllSeats({
     input
 });
+
+const output = getHighestSeatId( { seats } );
 
 console.log({
     output
