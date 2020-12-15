@@ -22,7 +22,7 @@ describe("day 2", () => {
     });
 
     describe("part 2", () => {
-        xit("should return the correct answer matching the example", () => {
+        it("should return the correct answer matching the example", () => {
             const result = getCurrentValidPasswords({
                 input
             });
