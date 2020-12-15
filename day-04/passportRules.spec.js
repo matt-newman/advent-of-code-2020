@@ -1,59 +1,43 @@
 import should from 'should';
 import {
+    getContents
+} from '../utils/readFile.js';
+
+import {
     isValidPassport
 } from './code.js';
 
+const validExamples = getContents('./day-04/validExamples.txt').split('\n\n'); // important take note of: '\n\n'
+const invalidExamples = getContents('./day-04/invalidExamples.txt').split('\n\n'); // important take note of: '\n\n'
+
 describe("isValidPassport", () => {
 
-    const validExamples = [
-        `pid:087499704 hgt:74in ecl:grn iyr:2012 eyr:2030 byr:1980
-hcl:#623a2f`,
-        `eyr:2029 ecl:blu cid:129 byr:1989
-iyr:2014 pid:896056539 hcl:#a97842 hgt:165cm`,
-        `hcl:#888785
-hgt:164cm byr:2001 iyr:2015 cid:88
-pid:545766238 ecl:hzl
-eyr:2022`,
-        `iyr:2010 hgt:158cm hcl:#b6652a ecl:blu byr:1944 eyr:2021 pid:093154719`
-    ];
+    describe("examples", () => {
+        it("should return true for all the valid examples", () => {
+            const result = validExamples.every(example => isValidPassport({
+                entry: example
+            }));
 
-    const invalidExamples = [
-        `eyr:1972 cid:100
-hcl:#18171d ecl:amb hgt:170 pid:186cm iyr:2018 byr:1926`,
-        `iyr:2019
-hcl:#602927 eyr:1967 hgt:170cm
-ecl:grn pid:012533040 byr:1946`,
-        `hcl:dab227 iyr:2012
-ecl:brn hgt:182cm pid:021572410 eyr:2020 byr:1992 cid:277`,
-        `hgt:59cm ecl:zzz
-eyr:2038 hcl:74454a iyr:2023
-pid:3556412378 byr:2007`
-    ];
+            result.should.equal(true);
+        });
 
-    it("should return true for all the valid examples", () => {
-        const result = validExamples.every(example => isValidPassport({
-            entry: example
-        }));
+        it("should return false for all the invalid examples", () => {
+            const result = invalidExamples.some(example => isValidPassport({
+                entry: example
+            }));
 
-        result.should.equal(true);
-    });
-
-    it("should return false for all the invalid examples", () => {
-        const result = validExamples.some(example => isValidPassport({
-            entry: example
-        }));
-
-        result.should.equal(false);
+            result.should.equal(false);
+        });
     });
 
     describe("byr", () => {
-        it("should be four digits; at least 1920 and at most 2002", () => {
+        it("four digits; at least 1920 and at most 2002", () => {
             const altered = validExamples.slice();
-            const byrRegex = /byr:[^\\s]+[\\s\n]/ig;
-            let invalidBirthyears = ['byr:2003 ', 'byr:1919 '];
-            
-            altered[0] = altered[0].replace(byrRegex, invalidBirthyears[0]);
-            altered[1] = altered[1].replace(byrRegex, invalidBirthyears[1]);
+            const regex = /byr:[^\s\\n]*(\s|\\n|$)?/i;
+            let invalidExamples = ['byr:2003 ', 'byr:1919 '];
+
+            altered[0] = altered[0].replace(regex, invalidExamples[0]);
+            altered[1] = altered[1].replace(regex, invalidExamples[1]);
 
             const result = altered.filter(example => isValidPassport({
                 entry: example
@@ -62,4 +46,107 @@ pid:3556412378 byr:2007`
             result.length.should.equal(2);
         });
     });
+
+    describe("iyr", () => {
+        it("four digits; at least 2010 and at most 2020", () => {
+            const altered = validExamples.slice();
+            const regex = /iyr:[^\s\\n]*(\s|\\n|$)?/i;
+            let invalidExamples = ['iyr:2009 ', 'iyr:2021 '];
+
+            altered[0] = altered[0].replace(regex, invalidExamples[0]);
+            altered[1] = altered[1].replace(regex, invalidExamples[1]);
+
+            const result = altered.filter(example => isValidPassport({
+                entry: example
+            }));
+
+            result.length.should.equal(2);
+        });
+    });
+
+    describe("hgt", () => {
+        it("a number followed by either cm or in. If cm, the number must be at least 150 and at most 193. If in, the number must be at least 59 and at most 76.", () => {
+            const altered = validExamples.slice();
+            const regex = /hgt:[^\s\\n]*(\s|\\n|$)?/i;
+            let invalidExamples = ['hgt:190in ', 'hgt:190 '];
+
+            altered[0] = altered[0].replace(regex, invalidExamples[0]);
+            altered[1] = altered[1].replace(regex, invalidExamples[1]);
+
+            const result = altered.filter(example => isValidPassport({
+                entry: example
+            }));
+
+            result.length.should.equal(2);
+        });
+    });
+
+    describe("eyr", () => {
+        it("four digits; at least 2020 and at most 2030", () => {
+            const altered = validExamples.slice();
+            const regex = /eyr:[^\s\\n]*(\s|\\n|$)?/i;
+            let invalidExamples = ['eyr:2019 ', 'eyr:2031 '];
+
+            altered[0] = altered[0].replace(regex, invalidExamples[0]);
+            altered[1] = altered[1].replace(regex, invalidExamples[1]);
+
+            const result = altered.filter(example => isValidPassport({
+                entry: example
+            }));
+
+            result.length.should.equal(2);
+        });
+    });
+
+    describe("hcl", () => {
+        it("a # followed by exactly six characters 0-9 or a-f", () => {
+            const altered = validExamples.slice();
+            const regex = /hcl:[^\s\\n]*(\s|\\n|$)?/i;
+            let invalidExamples = ['hcl:#123abz ', 'hcl:123abc '];
+
+            altered[0] = altered[0].replace(regex, invalidExamples[0]);
+            altered[1] = altered[1].replace(regex, invalidExamples[1]);
+
+            const result = altered.filter(example => isValidPassport({
+                entry: example
+            }));
+
+            result.length.should.equal(2);
+        });
+    });
+
+    describe("ecl", () => {
+        it("exactly one of: amb blu brn gry grn hzl oth", () => {
+            const altered = validExamples.slice();
+            const regex = /ecl:[^\s\\n]*(\s|\\n|$)?/i;
+            let invalidExamples = ['ecl:wat ', 'ecl:brown '];
+
+            altered[0] = altered[0].replace(regex, invalidExamples[0]);
+            altered[1] = altered[1].replace(regex, invalidExamples[1]);
+
+            const result = altered.filter(example => isValidPassport({
+                entry: example
+            }));
+
+            result.length.should.equal(2);
+        });
+    });
+
+    describe("pid", () => {
+        it("a nine-digit number, including leading zeroes", () => {
+            const altered = validExamples.slice();
+            const regex = /pid:[^\s\\n]*(\s|\\n|$)?/i;
+            let invalidExamples = ['pid:0123456789 ', 'pid:0000000001 '];
+
+            altered[0] = altered[0].replace(regex, invalidExamples[0]);
+            altered[1] = altered[1].replace(regex, invalidExamples[1]);
+
+            const result = altered.filter(example => isValidPassport({
+                entry: example
+            }));
+
+            result.length.should.equal(2);
+        });
+    });
+
 });

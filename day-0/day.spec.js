@@ -4,7 +4,7 @@ import {
     b
 } from './code.js';
 
-describe("day X", () => {
+xdescribe("day X", () => {
     let input = [];
 
     describe("part 1", () => {

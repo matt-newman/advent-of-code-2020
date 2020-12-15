@@ -67,3 +67,16 @@ In fact I realise I can just filter the rows not being used, as the y of the inp
 ## Part 1:
 
 First thing is to get the input data setup correctly, first guess is splitting by \n\n should give all entries, then maybe split by regex for space?
+
+## Part 2:
+
+So this was complicated, simply in terms of setting up reasonable test cases, and the framework for validating the rules, the code itself was all fairly easy. though I've heavily lent on regex, which is risky but normally suitable for text
+
+So a simple error about the number of fields required means that my first answer was too high.
+
+... this ended up being really tough to solve and took a couple of hours :/
+
+mainly some functions I wrote/used didn't behave as I expected I also repeatedly had simple counting errors with the number of fields when including the 'cid' field, which didn't help
+
+# Day 5
+## Part 1:

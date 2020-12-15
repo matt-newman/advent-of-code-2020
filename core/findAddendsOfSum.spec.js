@@ -1,10 +1,10 @@
 import should from 'should';
 
 import {
-    findItemsThatSumToTarget
-} from '../core/findTermsOfTarget.js';
+    findPairThatSumToTarget
+} from '../core/findAddendsOfSum.js';
 
-describe("findItemsThatSumToTarget", () => {
+describe("findPairThatSumToTarget", () => {
     it("should be able to sum entries in an array to find the ones that equal the given target", () => {
         let input = [
             1721,
@@ -14,7 +14,7 @@ describe("findItemsThatSumToTarget", () => {
             675,
             1456
         ];
-        let result = findItemsThatSumToTarget(input, 2020);
+        let result = findPairThatSumToTarget( { input, target:2020 });
 
         result.should.deepEqual([1721, 299]);
     });
@@ -26,7 +26,7 @@ describe("findItemsThatSumToTarget", () => {
             '3',
             '4'
         ];
-        let result = findItemsThatSumToTarget(input, 4);
+        let result = findPairThatSumToTarget( { input, target:4 });
 
         result.should.deepEqual([1, 3]);
     });

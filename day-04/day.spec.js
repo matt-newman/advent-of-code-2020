@@ -16,18 +16,19 @@ describe("day 04", () => {
                 input
             });
 
-            result.length.should.equal(2);
+            result.should.equal(2);
             // puzzle answer = 233
         });
     });
 
     describe("part 2", () => {
         it("should return the correct answer matching the example", () => {
-            const result = isValidPassport({
+            const result = numberOfValidPassports({
                 input
             });
 
-            result.should.not.deepEqual([]);
+            result.should.equal(2);
+            // puzzle answer = 111
         });
     });
 });
