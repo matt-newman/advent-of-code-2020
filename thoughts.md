@@ -37,3 +37,11 @@ This is obviously computationally expensive/inefficient and can be improved in a
 
 # Day 2
 ## Part 1:
+
+I just kinda worked through this on first pass by setting up the test cases, luckily (perhaps) it just seemed to work.
+
+## Part 2:
+
+Ok, my immediate thought based on my implementation is that I could easily just duplicate the 'isValid' function from part one changing the check done so that it suits the new critera, this is obviously not something I'd do on a corporate codebase, but trying to consider YAGNI, this is probably ok for now, and can be refactored if its used again later.
+
+My suspicion is that it will be re-used and that we'll need to do a combination of the checks.
