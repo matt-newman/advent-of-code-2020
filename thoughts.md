@@ -66,3 +66,4 @@ In fact I realise I can just filter the rows not being used, as the y of the inp
 # Day 4
 ## Part 1:
 
+First thing is to get the input data setup correctly, first guess is splitting by \n\n should give all entries, then maybe split by regex for space?
