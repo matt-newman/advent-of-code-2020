@@ -8,15 +8,22 @@ import {
 
 import {
     findPairThatSumToTarget
-} from '../core/findPairThatSumToTarget.js';
+} from '../core/findAddendsOfSum.js';
 
 import {
     sumItems
 } from './sumItems.js';
 
-let input = getContents('./day-01/input.1.txt').split('\n');
+let input = getContents('./day-01/input.txt').split('\n');
 
-let items = findPairThatSumToTarget(input);
+let items = findPairThatSumToTarget({
+    input
+});
+
+// console.log({
+//     input,
+//     items
+// });
 
 let output = sumItems(items);
 

@@ -18,6 +18,7 @@ describe("day 2", () => {
             });
 
             result.length.should.equal(2);
+            // actual puzzle answer = 515
         });
     });
 
@@ -28,6 +29,7 @@ describe("day 2", () => {
             });
 
             result.length.should.equal(1);
+            // actual puzzle answer = 711
         });
     });
 });

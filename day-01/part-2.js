@@ -8,13 +8,13 @@ import {
 
 import {
     findThreeThatSumToTarget
-} from '../core/findItemsThatSumToTarget.js';
+} from '../core/findAddendsOfSum.js';
 
 import {
     sumItems
 } from './sumItems.js';
 
-const input = getContents('./day-01/input.1.txt').split('\n');
+const input = getContents('./day-01/input.txt').split('\n');
 
 const items = findThreeThatSumToTarget({
     input

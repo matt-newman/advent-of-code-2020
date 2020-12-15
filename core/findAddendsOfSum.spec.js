@@ -2,7 +2,7 @@ import should from 'should';
 
 import {
     findItemsThatSumToTarget
-} from '../core/findItemsThatSumToTarget.js';
+} from '../core/findTermsOfTarget.js';
 
 describe("findItemsThatSumToTarget", () => {
     it("should be able to sum entries in an array to find the ones that equal the given target", () => {

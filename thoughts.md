@@ -54,3 +54,15 @@ so it feels like a relatively simple exercise in simply looping and checking wha
 Trying to use array.reduce has tripped me up here, so debug logging to see the output shows that its very close, but i'm simply incrementing the accumulator each time, regardless of whether its a match for a tree or not.
 
 Whilst my first pass is only trying to calculate the total trees where x and y are the same, I'm assuming that I'll be able to use the width of the input combined with modulo and the current index to constantly have the correct x,y coordinates.
+
+## Part 2:
+
+Ok, so changing the x coordinate is easy and built into my program, changing the y means I'll have to do something with reduce, my initial thought is simply accumulator * 1 until you reach the next y coordinate.
+
+Ok, so its not that simple with y, as my x will continue to increment... so I need to stop that happening
+
+In fact I realise I can just filter the rows not being used, as the y of the input is always full length
+
+# Day 4
+## Part 1:
+

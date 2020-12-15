@@ -3,7 +3,7 @@ import should from 'should';
 import {
     findPairThatSumToTarget,
     findThreeThatSumToTarget
-} from '../core/findItemsThatSumToTarget.js';
+} from '../core/findAddendsOfSum.js';
 import {
     sumItems
 } from './sumItems.js';
@@ -27,6 +27,7 @@ describe("day 1", () => {
             const result = sumItems(items);
 
             result.should.equal(1721 * 299);
+            // actual puzzle answer = 259716
         });
     });
 
@@ -47,6 +48,7 @@ describe("day 1", () => {
             const result = sumItems(items);
 
             result.should.equal(979 * 366 * 675);
+            // actual puzzle answer = 120637440
         });
     });
 });

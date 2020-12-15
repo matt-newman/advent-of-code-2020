@@ -1,5 +1,5 @@
-const keys = { 
-    open: '.', 
+const keys = {
+    open: '.',
     tree: '#'
 };
 
@@ -7,23 +7,31 @@ const keys = {
 
 const howManyTrees = ({
     input = [],
-    x = 1,
+    x = 3,
     y = 1
 }) => {
     const inputWidth = input[0]?.length || 0;
 
-    const numberOfTrees = input.reduce( (previous, current, index) => {
-        const square = current[ x * index ];
-        // console.log( { previous, current, index, square } );
-        return square === keys.tree ? previous+=1 : previous;
-    }, 0 );
+    const workingMapForY = input.filter( ( item, index ) => index % y === 0 );
+
+    const numberOfTrees = workingMapForY.reduce((previous, current, index) => {
+        let relativeX = (x * index) % inputWidth;
+        let square = current[relativeX];
+
+        // console.log({
+        //     previous,
+        //     current,
+        //     index,
+        //     relativeX,
+        //     square
+        // });
+
+        return (square === keys.tree) ? previous += 1 : previous;
+    }, 0);
 
     return numberOfTrees;
 };
 
-const b = () => [];
-
 export {
     howManyTrees,
-    b
 };
