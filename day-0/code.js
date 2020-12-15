@@ -2,6 +2,9 @@ const getAllSeats = ({
     input = []
 }) => {
     // for dealing with the full array
+    return input.map(data => {
+        return getSeat({ input: data });
+    });
 }
 
 const getSeat = ({
@@ -18,33 +21,42 @@ const getSeat = ({
     row = getRow(rowData);
     column = getColumn(columnData);
 
-    return { row, column };
+    return {
+        row,
+        column,
+        id: getSeatId( { row, column } )
+    };
 };
 
-const getRow = ( rowData=[] ) => {
+const getRow = (rowData = []) => {
     const byteMap = [64, 32, 16, 8, 4, 2, 1];
     const rows = 127; // 128 but 0 indexed
-    return rowData.reduce( (acc, current, index) => {
+    return rowData.reduce((acc, current, index) => {
         return current === 'F' ? acc - byteMap[index] : acc;
     }, rows);
 }
 
-const getColumn = ( columnData=[] ) => {
+const getColumn = (columnData = []) => {
     const byteMap = [4, 2, 1];
     const columns = 7; // 8 but 0 indexed
-    return columnData.reduce( (acc, current, index) => {
+    return columnData.reduce((acc, current, index) => {
         return current === 'L' ? acc - byteMap[index] : acc;
     }, columns);
 }
 
-const getSeatId = ({
-    seat
-}) => {
+const getSeatId = (seat) => {
     return seat.row * 8 + seat.column;
-};
+}
+
+const getHighestSeatId = ({
+    seats=[]
+}) => {
+    return Math.max(...seats.map(seat => seat.id), 0);
+}
 
 export {
     getSeat,
     getSeatId,
     getAllSeats,
+    getHighestSeatId,
 };

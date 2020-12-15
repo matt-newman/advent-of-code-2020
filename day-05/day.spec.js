@@ -5,8 +5,10 @@ import {
 } from '../utils/readFile.js';
 
 import {
+    getAllSeats,
     getSeat,
-    getSeatId
+    getSeatId,
+    getHighestSeatId,
 } from '../day-0/code.js';
 
 let input = getContents('./day-05/example.txt').split('\n');
@@ -21,7 +23,8 @@ describe("day 05", () => {
 
             result.should.deepEqual({
                 row: 44,
-                column: 5
+                column: 5,
+                id: 357
             });
         });
 
@@ -30,11 +33,34 @@ describe("day 05", () => {
                 input: input[0]
             });
 
-            const result = getSeatId( { seat } );
+            const result = getSeatId(seat);
 
-            result.should.equal(357);
+            result.should.equal(357); // the seat has ID 44 * 8 + 5 = 357
+        });
 
-            // the seat has ID 44 * 8 + 5 = 357
+        it("should return a full set of seat data", () => {
+            const result = getAllSeats({
+                input
+            });
+
+            result.should.deepEqual(
+                [
+                    { row: 44, column: 5, id: 357 },
+                    { row: 70, column: 7, id: 567 },
+                    { row: 14, column: 7, id: 119 },
+                    { row: 102, column: 4, id: 820 },
+                ]
+            );
+        });
+
+        it("should find the highest seatId", () => {
+            const seats = getAllSeats({
+                input
+            });
+
+            const result = getHighestSeatId( { seats } );
+
+            result.should.equal(820);
         });
     });
 
