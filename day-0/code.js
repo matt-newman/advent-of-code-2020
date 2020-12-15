@@ -26,11 +26,15 @@ const getRow = ( rowData=[] ) => {
     const rows = 127; // 128 but 0 indexed
     return rowData.reduce( (acc, current, index) => {
         return current === 'F' ? acc - byteMap[index] : acc;
-    }, 127);
+    }, rows);
 }
 
 const getColumn = ( columnData=[] ) => {
-    return 0;
+    const byteMap = [4, 2, 1];
+    const columns = 7; // 8 but 0 indexed
+    return columnData.reduce( (acc, current, index) => {
+        return current === 'L' ? acc - byteMap[index] : acc;
+    }, columns);
 }
 
 const getSeatId = ({
