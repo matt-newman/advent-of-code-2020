@@ -49,4 +49,8 @@ My suspicion is that it will be re-used and that we'll need to do a combination 
 # Day 3
 ## Part 1:
 
-so it feels like a relatively simple exercise in simply looping and checking what is at the given index in each loop
+so it feels like a relatively simple exercise in simply looping and checking what is at the given index in each loop.
+
+Trying to use array.reduce has tripped me up here, so debug logging to see the output shows that its very close, but i'm simply incrementing the accumulator each time, regardless of whether its a match for a tree or not.
+
+Whilst my first pass is only trying to calculate the total trees where x and y are the same, I'm assuming that I'll be able to use the width of the input combined with modulo and the current index to constantly have the correct x,y coordinates.

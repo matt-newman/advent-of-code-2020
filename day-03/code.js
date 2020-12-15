@@ -14,8 +14,8 @@ const howManyTrees = ({
 
     const numberOfTrees = input.reduce( (previous, current, index) => {
         const square = current[ x * index ];
-        console.log( { previous, current, index, square } );
-        return square === keys.tree ? previous : previous+=1;
+        // console.log( { previous, current, index, square } );
+        return square === keys.tree ? previous+=1 : previous;
     }, 0 );
 
     return numberOfTrees;
