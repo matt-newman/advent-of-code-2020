@@ -5,7 +5,7 @@ import {
 } from '../utils/readFile.js';
 
 import {
-    a,
+    howManyTrees,
     b
 } from './code.js';
 
@@ -16,7 +16,7 @@ describe("day 03", () => {
 
     describe("part 1", () => {
         it("should return the correct answer matching the example", () => {
-            const result = a({
+            const result = howManyTrees({
                 input
             });
 

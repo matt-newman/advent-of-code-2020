@@ -3,11 +3,11 @@ import {
 } from '../utils/readFile.js';
 
 import {
-    a
+    howManyTrees
 } from './code.js';
 
-let input = getContents('./day-03/input.txt').split('\n');
-let output = a({
+let input = getContents('./day-03/example.txt').split('\n');
+let output = howManyTrees({
     input
 });
 
