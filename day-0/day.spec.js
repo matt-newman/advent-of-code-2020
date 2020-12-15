@@ -1,7 +1,11 @@
 import should from 'should';
+
 import {
-    a,
-    b
+    getContents
+} from '../utils/readFile.js';
+
+import {
+    a
 } from './code.js';
 
 xdescribe("day X", () => {

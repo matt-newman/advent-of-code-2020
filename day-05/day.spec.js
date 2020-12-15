@@ -1,22 +1,35 @@
 import should from 'should';
 import {
+    getSeat,
+    getSeatId
+} from '../day-0/code.js';
+
+import {
+    getContents
+} from '../utils/readFile.js';
+
+import {
     a
 } from './code.js';
 
+let input = getContents('./day-05/example.txt').split('\n');
+
 describe("day 05", () => {
-    let input = [];
 
     describe("part 1", () => {
         it("should return the correct answer matching the example", () => {
-            const result = a({
+            const result = getSeat({
                 input
             });
 
-            result.should.not.deepEqual([]);
+            result.should.deepEqual({
+                row: 44,
+                column: 5
+            });
         });
     });
 
-    describe("part 2", () => {
+    xdescribe("part 2", () => {
         it("should return the correct answer matching the example", () => {
             const result = b({
                 input
@@ -25,4 +38,5 @@ describe("day 05", () => {
             result.should.not.deepEqual([]);
         });
     });
+
 });
