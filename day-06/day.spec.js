@@ -5,7 +5,11 @@ import {
 } from '../utils/readFile.js';
 
 import {
-    getGroupAnswers
+    getAnswers,
+    getGroupAnswerTotals,
+    getUniqueGroupAnswers,
+    sumGroupAnswers,
+    sumUniqueAnswers
 } from './code.js';
 
 let input = getContents('./day-06/example.txt').split('\n\n');
@@ -13,7 +17,8 @@ let input = getContents('./day-06/example.txt').split('\n\n');
 describe("day 06", () => {
     describe("example", () => {
         it("should sum the counts correctly", () => {
-            const result = getGroupAnswers( { input } );
+            const answers = getAnswers( { input } );
+            const result = sumUniqueAnswers( answers );
             result.should.equal(11);
         });
     })
@@ -24,17 +29,26 @@ describe("day 06", () => {
                 input
             });
 
-            result.should.not.deepEqual([]);
+            result.should.equal(6387);
+            // puzzle answer = 6387
         });
     });
 
-    xdescribe("part 2", () => {
-        it("should return the correct answer matching the example", () => {
-            const result = b({
-                input
-            });
+    describe("part 2", () => {
+        it("example", () => {
+            let groups = getAnswers({ input });
+            let groupAnswerTotals = getGroupAnswerTotals({groups});
+            let result = sumGroupAnswers(groupAnswerTotals);
+            result.should.equal(6);
+        });
 
-            result.should.not.deepEqual([]);
+        it("should return the actual answer", () => {
+            input = getContents('./day-06/input.txt').split('\n\n');
+            let groups = getAnswers({ input });
+            let groupAnswerTotals = getGroupAnswerTotals({groups});
+            let result = sumGroupAnswers(groupAnswerTotals);
+            result.should.equal(3039);
+            // puzzle answer = 3039
         });
     });
 });
