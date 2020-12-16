@@ -8,7 +8,7 @@ import {
     getGroupAnswers
 } from './code.js';
 
-let input = getContents('./day-06/example.txt').split('\n');
+let input = getContents('./day-06/example.txt').split('\n\n');
 
 describe("day 06", () => {
     describe("example", () => {
