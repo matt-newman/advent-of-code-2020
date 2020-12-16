@@ -92,3 +92,5 @@ Just took a fair amount of playing about with combination of reduce function in 
 ## Part 1:
 Before starting, I've glanced at the stats for AoC, I'm starting several days behind as the commit messages show, am catching up, but I see that day 7 has a big drop off compared to the other days, so I'm expecting this to be a hard problem!
 
+Ok, yeah, this looks tough, first thought is even how to turn the text into useable data, looks like split() on the word 'contain' and then by ',' also maybe to make everything more readable, simply remove the word bag(s).
+

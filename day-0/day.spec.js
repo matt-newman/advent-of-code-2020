@@ -17,7 +17,7 @@ xdescribe("day X", () => {
                 input
             });
 
-            result.should.not.deepEqual([]);
+            result.should.equal(-2);
         });
     });
 
@@ -27,7 +27,7 @@ xdescribe("day X", () => {
                 input
             });
 
-            result.should.not.deepEqual([]);
+            result.should.equal(-2);
         });
     });
 });

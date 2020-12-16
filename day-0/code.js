@@ -1,4 +1,6 @@
-const a = () => [];
-const b = () => [];
+const a = ( { input } ) => {
+    const output = 'a';
+    return output;
+};
 
-export { a, b };
+export { a };
