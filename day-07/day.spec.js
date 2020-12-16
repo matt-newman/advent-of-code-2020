@@ -8,9 +8,10 @@ import {
     a
 } from './code.js';
 
-let input = getContents('./day-X/example.txt').split('\n');
+let input = getContents('./day-07/example.txt').split('\n');
 
-xdescribe("day X", () => {
+describe("day 07", () => {
+
     describe("part 1", () => {
         it("should return the correct answer matching the example", () => {
             const result = a({
@@ -21,7 +22,7 @@ xdescribe("day X", () => {
         });
     });
 
-    describe("part 2", () => {
+    xdescribe("part 2", () => {
         it("should return the correct answer matching the example", () => {
             const result = b({
                 input
@@ -30,4 +31,5 @@ xdescribe("day X", () => {
             result.should.not.deepEqual([]);
         });
     });
+
 });
