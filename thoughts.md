@@ -88,3 +88,10 @@ This was relatively straight forward
 This seems like its a case in manually working out the min and max, based on the formula for seat id.
 
 Otherwise, getting the full seat, taking only the ids and then sorting and looking for the gap
+
+# Day 6
+## Part 1:
+
+Immediately this looks tougher, but I think its probably a case of correctly using a reduce function.
+
+

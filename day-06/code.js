@@ -1,4 +1,5 @@
-const a = () => [];
-const b = () => [];
+const getGroupAnswers = ( { input=[] } ) => {
+    return 0;
+}
 
-export { a, b };
+export { getGroupAnswers };

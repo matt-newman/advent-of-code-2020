@@ -5,13 +5,20 @@ import {
 } from '../utils/readFile.js';
 
 import {
-    a
+    getGroupAnswers
 } from './code.js';
 
-xdescribe("day X", () => {
-    let input = [];
+let input = getContents('./day-06/example.txt').split('\n');
 
-    describe("part 1", () => {
+describe("day 06", () => {
+    describe("example", () => {
+        it("should sum the counts correctly", () => {
+            const result = getGroupAnswers( { input } );
+            result.should.equal(11);
+        });
+    })
+
+    xdescribe("part 1", () => {
         it("should return the correct answer matching the example", () => {
             const result = a({
                 input
@@ -21,7 +28,7 @@ xdescribe("day X", () => {
         });
     });
 
-    describe("part 2", () => {
+    xdescribe("part 2", () => {
         it("should return the correct answer matching the example", () => {
             const result = b({
                 input

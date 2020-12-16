@@ -8,6 +8,8 @@ import {
     a
 } from './code.js';
 
+let input = getContents('./day-X/example.txt').split('\n');
+
 xdescribe("day X", () => {
     let input = [];
 
