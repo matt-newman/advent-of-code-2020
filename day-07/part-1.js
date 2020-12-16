@@ -3,15 +3,26 @@ import {
 } from '../utils/readFile.js';
 
 import {
+    getListOfPossibleContainersOfBag,
     getBagData
 } from './code.js';
 
-let input = getContents('./day-07/example.txt').split('\n');
+import util from 'util';
 
-let output = getBagData({
+let input = getContents('./day-07/input.txt').split('\n');
+
+let bagData = getBagData({
     input
 });
 
-console.log({
-    output
+let output = getListOfPossibleContainersOfBag({
+    bagData,
+    target: 'shiny_gold'
 });
+
+console.log(util.inspect(output, {
+    showHidden: false,
+    depth: null
+}));
+
+console.log(output.length)

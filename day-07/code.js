@@ -26,6 +26,29 @@ const getBagData = ({
     return output;
 };
 
+const getBagsContainingBag = ( { bagData=[], target='' } ) => {
+    return bagData.filter( bag => {
+        return bag.contents.some(item=>item.bag===target)
+    } );
+}
+
+let containers = [];
+const getListOfPossibleContainersOfBag = ( { bagData=[], target='' } ) => {
+
+    getBagsContainingBag( { bagData, target } ).map( bag => {
+        let type = bag.bag;
+        if (!containers.includes(type)) {
+            // console.log({bag});
+            containers.push(type);
+            getListOfPossibleContainersOfBag( { bagData, target: type } )
+        }
+    });
+
+    return containers;
+}
+
 export {
-    getBagData
+    getBagData,
+    getBagsContainingBag,
+    getListOfPossibleContainersOfBag,
 };

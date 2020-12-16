@@ -95,3 +95,7 @@ Before starting, I've glanced at the stats for AoC, I'm starting several days be
 Ok, yeah, this looks tough, first thought is even how to turn the text into useable data, looks like split() on the word 'contain' and then by ',' also maybe to make everything more readable, simply remove the word bag(s).
 
 So from reading the problem, it feels like its some sort of tree traversal
+
+One solution is to do this as a recursive set of filtering, starting from the lowest level, find all the bags that hold the target, then for each of those find the bags that hold them... etc, e.g (pseudo code):
+
+tree.filter( contents.contain(target) )
