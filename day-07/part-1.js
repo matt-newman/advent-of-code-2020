@@ -3,12 +3,12 @@ import {
 } from '../utils/readFile.js';
 
 import {
-    a
+    getBagData
 } from './code.js';
 
-let input = getContents('./day-07/input.txt').split('\n');
+let input = getContents('./day-07/example.txt').split('\n');
 
-let output = a({
+let output = getBagData({
     input
 });
 
