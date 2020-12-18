@@ -32,8 +32,29 @@ const getBagsContainingBag = ( { bagData=[], target='' } ) => {
     } );
 }
 
-let containers = [];
+const getNestedContents = ( { bags, start='shiny_gold'} ) => {
+
+    const findBag = ( key ) => {
+        return bags.find( bag => {
+            return bag.bag === key
+        } );
+    }
+    
+    let thisBag = findBag( start );
+
+    console.log( { thisBag } );
+
+    thisBag?.contents?.forEach( bag => {
+        let next = bag.bag;
+        let inside = getNestedContents( { bags, start: next } ).contents;
+        bag.contents = inside;
+    } );
+
+    return thisBag;
+}
+
 const getListOfPossibleContainersOfBag = ( { bagData=[], target='' } ) => {
+    let containers = [];
 
     getBagsContainingBag( { bagData, target } ).map( bag => {
         let type = bag.bag;
@@ -51,4 +72,5 @@ export {
     getBagData,
     getBagsContainingBag,
     getListOfPossibleContainersOfBag,
+    getNestedContents,
 };

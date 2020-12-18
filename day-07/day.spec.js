@@ -23,23 +23,28 @@ describe("day 07", () => {
             result.length.should.equal(4);
         });
 
-        it("should return the correct answer for the problem", () => {
-            const result = a({
+        xit("should return the correct answer for the problem", () => {
+            let bagData = getBagData({
                 input
             });
+            
+            let result = getListOfPossibleContainersOfBag({
+                bagData,
+                target: 'shiny_gold'
+            });
 
-            result.should.equal(-2);
+            result.length.should.equal(126);
             // puzzle answer = 126
         });
     });
 
-    xdescribe("part 2", () => {
+    describe("part 2", () => {
         it("should return the correct answer matching the example", () => {
             const result = b({
                 input
             });
 
-            result.should.equal(-2);
+            result.should.equal(32);
         });
     });
 

@@ -99,3 +99,8 @@ So from reading the problem, it feels like its some sort of tree traversal
 One solution is to do this as a recursive set of filtering, starting from the lowest level, find all the bags that hold the target, then for each of those find the bags that hold them... etc, e.g (pseudo code):
 
 tree.filter( contents.contain(target) )
+
+## Part 2:
+This has taken me a surprising amount of time, whilst I've not had much dedicated time towards it, I've probably spent 6+ hours on it in total before finally getting a nice simple recursive function generating a nested tree, I haven't got the sum answer at this point, but I feel this next part will be relatively easy.
+
+
