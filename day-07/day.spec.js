@@ -5,7 +5,7 @@ import {
 } from '../utils/readFile.js';
 
 import {
-    getBagData, getBagsContainingBag, getListOfPossibleContainersOfBag, getNestedContents, getNestedSum
+    getBagData, getListOfPossibleContainersOfBag, getNestedContents, getNestedSum
 } from './code.js';
 
 let input = getContents('./day-07/example.txt').split('\n');
