@@ -5,7 +5,7 @@ import {
 } from '../utils/readFile.js';
 
 import {
-    getBagData, getBagsContainingBag, getListOfPossibleContainersOfBag
+    getBagData, getBagsContainingBag, getListOfPossibleContainersOfBag, getNestedContents, getNestedSum
 } from './code.js';
 
 let input = getContents('./day-07/example.txt').split('\n');
@@ -40,11 +40,24 @@ describe("day 07", () => {
 
     describe("part 2", () => {
         it("should return the correct answer matching the example", () => {
-            const result = b({
+            const data = getBagData({
                 input
             });
+            const nestedBags = getNestedContents({ bags: data, start: 'shiny_gold' });
+            const result = getNestedSum( { bag: nestedBags } );
 
             result.should.equal(32);
+        });
+
+        xit("should solve the puzzle", () => {
+            input = getContents('./day-07/input.txt').split('\n');
+            const data = getBagData({
+                input
+            });
+            const nestedBags = getNestedContents({ bags: data, start: 'shiny_gold' });
+            const result = getNestedSum( { bag: nestedBags } );
+
+            result.should.equal(220149);
         });
     });
 

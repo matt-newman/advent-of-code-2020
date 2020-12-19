@@ -42,7 +42,7 @@ const getNestedContents = ( { bags, start='shiny_gold'} ) => {
     
     let thisBag = findBag( start );
 
-    console.log( { thisBag } );
+    // console.log( { thisBag } );
 
     thisBag?.contents?.forEach( bag => {
         let next = bag.bag;
@@ -53,17 +53,38 @@ const getNestedContents = ( { bags, start='shiny_gold'} ) => {
     return thisBag;
 }
 
+var getNestedSum = ( {bag} ) => {
+    let total = 0;
+
+    if(!bag.number) {
+        bag.number = 1;
+    }
+
+    bag?.contents?.forEach( inner => {
+        let innerTotal = getNestedSum( { bag: inner } );
+        total += innerTotal + (inner.number * 1);
+    } );
+
+    total = total * (bag.number || 1);
+
+    // console.log( { total });
+    return total;
+}
+
 const getListOfPossibleContainersOfBag = ( { bagData=[], target='' } ) => {
     let containers = [];
+    const getContainers = ( inner=target ) => {
+        getBagsContainingBag( { bagData, target: inner } ).map( bag => {
+            let type = bag.bag;
+            if (!containers.includes(type)) {
+                // console.log({type});
+                containers.push(type);
+                getContainers( type );
+            }
+        });
+    }
 
-    getBagsContainingBag( { bagData, target } ).map( bag => {
-        let type = bag.bag;
-        if (!containers.includes(type)) {
-            // console.log({bag});
-            containers.push(type);
-            getListOfPossibleContainersOfBag( { bagData, target: type } )
-        }
-    });
+    getContainers( target );
 
     return containers;
 }
@@ -73,4 +94,5 @@ export {
     getBagsContainingBag,
     getListOfPossibleContainersOfBag,
     getNestedContents,
+    getNestedSum,
 };

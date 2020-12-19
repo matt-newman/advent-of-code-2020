@@ -5,11 +5,12 @@ import {
 import {
     getBagData,
     getNestedContents,
+    getNestedSum,
 } from './code.js';
 
 import util from 'util';
 
-let input = getContents('./day-07/example.txt').split('\n');
+let input = getContents('./day-07/input.txt').split('\n');
 
 let bags = getBagData({
     input
@@ -17,11 +18,11 @@ let bags = getBagData({
 
 let output = getNestedContents( { bags, target: 'shiny_gold' } );
 
-// TODO: sum the nested tree
+const result = getNestedSum( { bag: output } );
 
-console.log(util.inspect(output, {
-    showHidden: false,
-    depth: null
-}));
+// console.log(util.inspect(output, {
+//     showHidden: false,
+//     depth: null
+// }));
 
-console.log(output.length);
+console.log( { result } );
