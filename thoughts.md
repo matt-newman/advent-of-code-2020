@@ -103,4 +103,10 @@ tree.filter( contents.contain(target) )
 ## Part 2:
 This has taken me a surprising amount of time, whilst I've not had much dedicated time towards it, I've probably spent 6+ hours on it in total before finally getting a nice simple recursive function generating a nested tree, I haven't got the sum answer at this point, but I feel this next part will be relatively easy.
 
+# Day 8
+## Part 1:
 
+Very similar to last years puzzle, just be careful with string vs number and output the steps, relatively easy to solve.
+
+## Part 2:
+I'm immediately worried about this, tracking down a single corrupt entry :/ ... I'm tired so going to bed, won't get to look at this for the next couple of days.
