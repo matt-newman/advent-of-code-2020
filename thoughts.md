@@ -110,3 +110,5 @@ Very similar to last years puzzle, just be careful with string vs number and out
 
 ## Part 2:
 I'm immediately worried about this, tracking down a single corrupt entry :/ ... I'm tired so going to bed, won't get to look at this for the next couple of days.
+
+So, a strange way of possibly trying this is to brute force it, simply run the program in a loop which changes a single jmp or nop in turn and reruns the program.

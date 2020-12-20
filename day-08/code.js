@@ -10,6 +10,16 @@ const operations = {
     },
 }
 
+const getInstruction = ( line ) => {
+    // console.log( 'getInstruction', { line } );
+    const data = line.split(' ');
+    const opCode = data[0];
+    const arg = data[1];
+    const operation = operations[opCode];
+
+    return { opCode, operation, arg };
+}
+
 const getStep = (current, op, x) => {
     let step = 1;
     switch(op) {
@@ -27,24 +37,29 @@ const run = ({
     program=[]
 }) => {
     const executeOperation = ( line ) => {
-        const data = program[line].split(' ');
-        const opCode = data[0];
-        const arg = data[1];
-        const operation = operations[opCode];
-        const step = getStep(line, opCode, arg);
+        let instruction = getInstruction(program[line]);
+        let { operation, opCode, arg } = instruction;
+        let step = getStep(line, opCode, arg);
 
         if(instructionsExecuted.includes(line)) {
             // console.log( 'repeated instruction', { line, iteration, accumulator } );
             valid = false;
             return result;
         }
-
+        
         instructionsExecuted.push(line);
         iteration++;
         accumulator = operation(accumulator, arg);
+        result = { operation, arg, step, accumulator };
+        
+        if ( step >= program.length ) {
+            console.log( 'program complete', { result } );
+            valid = false;
+        }
 
-        return { operation, arg, step, accumulator };
+        return result;
     };
+
     let valid = true;
     let accumulator = 0;
     let iteration = 0;
@@ -62,5 +77,6 @@ const run = ({
 }
 
 export {
-    run
+    getInstruction,
+    run,
 };

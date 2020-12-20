@@ -30,13 +30,25 @@ describe("day 8", () => {
         });
     });
 
-    xdescribe("part 2", () => {
-        it("should return the correct answer matching the example", () => {
-            const result = b({
-                input
+    describe("part 2", () => {
+        it("should return the answer for the example", () => {
+            let input = getContents('./day-08/example-2.txt').split('\n');
+
+            const result = run({
+                program: input
             });
 
-            result.should.equal(-2);
+            result.accumulator.should.equal(8);
+        });
+
+        xit("should solve the puzzle", () => {
+            let input = getContents('./day-08/input.txt').split('\n');
+
+            const result = run({
+                program: input
+            });
+
+            result.accumulator.should.equal(1403);
         });
     });
 });
