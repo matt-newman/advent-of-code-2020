@@ -14,10 +14,11 @@ describe("day 09", () => {
     describe("part 1", () => {
         it("should solve the example", () => {
             const result = runProgram({
-                input
+                input,
+                size: 5,
             });
 
-            result.should.equal(127);
+            result.target.should.equal(127);
         });
 
         xit("should solve the puzzle", () => {

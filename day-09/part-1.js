@@ -3,13 +3,14 @@ import {
 } from '../utils/readFile.js';
 
 import {
-    a
+    runProgram
 } from './code.js';
 
-let input = getContents('./day-09/example.txt').split('\n');
+let input = getContents('./day-09/input.txt').split('\n');
 
-let output = a({
-    input
+let output = runProgram({
+    input,
+    size: 25,
 });
 
 console.log({
