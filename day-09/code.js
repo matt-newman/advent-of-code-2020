@@ -8,6 +8,7 @@ const runProgram = ({
     let currentIndex = base + size;
     let workingSet = input.slice(base, currentIndex);
     let target = input[size] * 1;
+    let weakness = -2;
 
     let output = findPairThatSumToTarget( { input: workingSet, target } );
 
@@ -19,7 +20,11 @@ const runProgram = ({
         output = findPairThatSumToTarget( { input: workingSet, target } );
     }
 
-    return  { workingSet, target };
+    const invalidNumber = target * 1;
+
+    // TODO: 
+
+    return  { workingSet, target, weakness };
 };
 
 export {

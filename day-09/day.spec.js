@@ -21,22 +21,25 @@ describe("day 09", () => {
             result.target.should.equal(127);
         });
 
-        xit("should solve the puzzle", () => {
-            const result = a({
-                input
+        it("should solve the puzzle", () => {
+            input = getContents('./day-09/input.txt').split('\n');
+            const result = runProgram({
+                input,
+                size: 25,
             });
 
-            result.should.equal(-2);
+            result.target.should.equal(1212510616);
         });
     });
 
-    xdescribe("part 2", () => {
+    describe("part 2", () => {
         it("should solve the example", () => {
-            const result = a({
-                input
+            const result = runProgram({
+                input,
+                size: 5,
             });
 
-            result.should.equal(-2);
+            result.weakness.should.equal(62);
         });
 
         xit("should solve the puzzle", () => {
