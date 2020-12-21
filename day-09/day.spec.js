@@ -5,7 +5,7 @@ import {
 } from '../utils/readFile.js';
 
 import {
-    runProgram
+    findInvalidNumber, getWeakness
 } from './code.js';
 
 let input = getContents('./day-09/example.txt').split('\n');
@@ -13,41 +13,45 @@ let input = getContents('./day-09/example.txt').split('\n');
 describe("day 09", () => {
     describe("part 1", () => {
         it("should solve the example", () => {
-            const result = runProgram({
+            const result = findInvalidNumber({
                 input,
                 size: 5,
             });
 
-            result.target.should.equal(127);
+            result.invalidNumber.should.equal(127);
         });
 
-        it("should solve the puzzle", () => {
+        xit("should solve the puzzle", () => {
             input = getContents('./day-09/input.txt').split('\n');
-            const result = runProgram({
+            const result = findInvalidNumber({
                 input,
                 size: 25,
             });
 
-            result.target.should.equal(1212510616);
+            result.invalidNumber.should.equal(1212510616);
         });
     });
 
     describe("part 2", () => {
         it("should solve the example", () => {
-            const result = runProgram({
+            const invalidNumber = findInvalidNumber({
                 input,
                 size: 5,
-            });
+            }).invalidNumber;
+            const weakness = getWeakness({input, invalidNumber});
 
-            result.weakness.should.equal(62);
+            weakness.should.equal(62);
         });
 
         xit("should solve the puzzle", () => {
-            const result = a({
-                input
-            });
+            input = getContents('./day-09/input.txt').split('\n');
+            const invalidNumber = findInvalidNumber({
+                input,
+                size: 25,
+            }).invalidNumber;
+            const weakness = getWeakness({input, invalidNumber});
 
-            result.should.equal(-2);
+            weakness.should.equal(171265123);
         });
     });
 });
