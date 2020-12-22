@@ -121,3 +121,29 @@ This was relatively straightforward/easy.
 This seems much tougher, the brute force would involve something like:
 
 forEach item add the next item until we're over the total or we've equalled it, if over, move on to the next item and repeat
+
+# Day 10
+## Part 1:
+Again before starting I can see there's a big drop off in completion of day 10.
+
+Ok, so this looks fairly simple, once sorted, simply add all items to array if they're within 3 of the current item. ... really it was about counting the number of times the gap was 1 or 3, that was still simple to do.
+
+## Part 2:
+So a bit of math shows that this might be best worked out using clusters, each cluster of 4 consecutive 1 jolt gaps gives 4 possible usage combinations, e.g:
+1,2,3,4 can be:
+1,4
+1,2,4
+1,3,4
+1,2,3,4
+
+so then each cluster should be multiplied by every other cluster's combinations,
+
+3 cluster groups (the minimum size for alternative options) have only 2 combinations:
+1,2,3
+1,3
+
+5 or more consecutive are simply multiple groups of 4, e.g:
+
+2,3,4,5,6,7 = 2,3,4,5 + 3,4,5,6 + 4,5,6,7 = 4 * 4 * 4 = 64
+
+A long consecutive can be calculated as 4^(x-3) e.g for the 6 numbers shown above: 4^(6-3) = 4^3 = 64

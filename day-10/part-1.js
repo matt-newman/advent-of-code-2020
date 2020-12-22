@@ -3,11 +3,11 @@ import {
 } from '../utils/readFile.js';
 
 import {
-    a
+    getAllJoltageAdapters,
 } from './code.js';
 
-let input = getContents('./day-0/input.txt').split('\n');
-let output = a({
+let input = getContents('./day-10/example.txt').split('\n');
+let output = getAllJoltageAdapters({
     input
 });
 
