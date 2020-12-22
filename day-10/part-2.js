@@ -7,7 +7,7 @@ import {
     getPossibleArrangements,
 } from './code.js';
 
-let input = getContents('./day-10/example-2.txt').split('\n');
+let input = getContents('./day-10/example.txt').split('\n');
 let clusters = getPossibleArrangements({
     input
 });
@@ -27,5 +27,5 @@ let output = totals.reduce((acc, curr) => {
 }, 1);
 
 console.log({
-    output: totals
+    output: clusters
 });
